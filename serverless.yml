@@ -14,6 +14,10 @@ provider:
   runtime: nodejs20.x
   region: us-east-1
 
+  environment:
+    PORT: 3000
+    DB_URL: 'mongodb+srv://udithshalinda2:2RLJEE2HNKABE97G@cluster0.01mvz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
