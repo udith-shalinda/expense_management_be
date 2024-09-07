@@ -1,0 +1,30 @@
+org: udithshalinda3
+app: expense-service
+service: expense-service
+
+custom:
+  stages:
+    - dev
+    - staging
+    - prod
+
+provider:
+  name: aws
+  stage: ${opt:stage,'dev'}
+  runtime: nodejs20.x
+  region: us-east-1
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+functions:
+  app:
+    handler: ./src/index.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+
+build:
+  esbuild: false
