@@ -6,8 +6,8 @@ import { authenticate } from '../middleware/authMiddleware';
 
 const router = express.Router();
 
-router.post('/sign-up', validateBody(authSchema), signup);
+router.post('/signUp', validateBody(authSchema), signup);
 router.post('/login', validateBody(authSchema), login);
-router.get('/who-am-i', authenticate, whoAmI);
+router.get('/whoAmI', authenticate, whoAmI);
 
 export default router;
